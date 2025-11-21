@@ -95,25 +95,25 @@ Frontend runs at: **http://localhost:3000**
 
 ### **Warehouse Endpoints**
 
--   `GET /warehouses`
--   `POST /warehouses/new_warehouse`
--   `GET /warehouses/warehouse/{id}`
--   `PUT /warehouses/update/{id}`
--   `DELETE /warehouses/delete/{id}`
--   `GET /warehouses/warehouseItems/{id}`
--   `POST /warehouses/addItemToWarehouse/{id}`
--   `PUT /warehouses/deleteItemInWarehouse/{warehouseId}/{itemId}`
--   `PUT /warehouses/transferItemFromWarehouseToWarehouse/{presentWarehouseId}/{itemId}/{newWarehouseId}`
+-   `GET /warehouses` - Retrieves all warehouses in the system with their locations and capacity information
+-   `POST /warehouses/new_warehouse` - Creates a new warehouse with name, capacity, and location details (city, state, country)
+-   `GET /warehouses/warehouse/{id}` - Fetches details of a specific warehouse by its ID including all associated information
+-   `PUT /warehouses/update/{id}` - Updates warehouse information such as name, capacity, or location for the specified warehouse ID
+-   `DELETE /warehouses/delete/{id}` - Permanently deletes a warehouse and removes all item associations from the system
+-   `GET /warehouses/warehouseItems/{id}` - Returns a list of all items currently stored in the specified warehouse
+-   `POST /warehouses/addItemToWarehouse/{id}` - Creates a new item and immediately associates it with the specified warehouse
+-   `PUT /warehouses/deleteItemInWarehouse/{warehouseId}/{itemId}` - Removes an item from a warehouse's inventory without deleting the item from the system
+-   `PUT /warehouses/transferItemFromWarehouseToWarehouse/{presentWarehouseId}/{itemId}/{newWarehouseId}` - Transfers an item from one warehouse to another, removing it from the source and adding it to the destination
 
 ### **Item Endpoints**
 
--   `GET /items`
--   `POST /items/item`
--   `GET /items/item/{id}`
--   `PUT /items/update-item/{id}`
--   `DELETE /items/delete/{id}`
--   `GET /items/warehousesForItem/{id}`
--   `PUT /items/addItemToAnWarehouse/{itemId}/{warehouseId}`
+-   `GET /items` - Retrieves all items in the inventory system across all warehouses
+-   `POST /items/item` - Creates a new item with details like name, SKU, description, quantity, and storage location
+-   `GET /items/item/{id}` - Fetches detailed information about a specific item by its ID
+-   `PUT /items/update-item/{id}` - Updates item information such as name, SKU, description, quantity, or storage location
+-   `DELETE /items/delete/{id}` - Permanently deletes an item from the system and removes it from all associated warehouses
+-   `GET /items/warehousesForItem/{id}` - Returns a list of all warehouses that currently stock the specified item
+-   `PUT /items/addItemToAnWarehouse/{itemId}/{warehouseId}` - Associates an existing item with an existing warehouse, creating a many-to-many relationship
 
 ## 📁 Project Structure
 
